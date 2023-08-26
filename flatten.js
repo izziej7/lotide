@@ -1,3 +1,4 @@
+// Call inside assertArraysEqual function
 const eqArrays = function(array1, array2) {
   if (array1.length === array2.length) {
     for (let i = 0; i < array1.length; i++) {
@@ -11,6 +12,7 @@ const eqArrays = function(array1, array2) {
   }
 };
 
+// Use to test flatten function
 const assertArraysEqual = function(array1, array2) {
   if (eqArrays(array1, array2)) {
     console.log(`✅✅✅ Assertion Passed: ${array1} === ${array2}`);
@@ -19,6 +21,7 @@ const assertArraysEqual = function(array1, array2) {
   }
 };
 
+// Return a flattened version (single-level array) of a nested array
 const flatten = function(nestedArray) {
   const flattenedArray = [];
   let index = 0;
@@ -36,6 +39,7 @@ const flatten = function(nestedArray) {
   return flattenedArray;
 };
 
+// Test flatten function
 assertArraysEqual(flatten([1, 2, [3, 4], 5, [6]]), [1, 2, 3, 4, 5, 6]);
 assertArraysEqual(flatten(["1", "2", ["3", "4"], "5", ["6"]]), ["1", "2", "3", "4", "5", "6"]);
 assertArraysEqual(flatten([]), []);
