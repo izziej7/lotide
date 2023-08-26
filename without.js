@@ -1,3 +1,4 @@
+// Call inside assertArraysEqual function
 const eqArrays = function(array1, array2) {
   if (array1.length === array2.length) {
     for (let i = 0; i < array1.length; i++) {
@@ -11,6 +12,7 @@ const eqArrays = function(array1, array2) {
   }
 };
 
+// Use to test without function
 const assertArraysEqual = function(array1, array2) {
   if (eqArrays(array1, array2)) {
     console.log(`✅✅✅ Assertion Passed: ${array1} === ${array2}`);
@@ -19,6 +21,7 @@ const assertArraysEqual = function(array1, array2) {
   }
 };
 
+// Return a subset of an array (source), removing unwanted elements (itemsToRemove)
 const without = function(source, itemsToRemove) {
   const itemsRemovedArray = [];
   let index = 0;
@@ -37,6 +40,7 @@ const without = function(source, itemsToRemove) {
   return itemsRemovedArray;
 };
 
+// Test without function
 assertArraysEqual(without([1, 2, 3], [1]), [2, 3]);
 assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]);
 assertArraysEqual(without([], []), []);
