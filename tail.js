@@ -16,7 +16,7 @@ const tail = function(array) {
   return tailArray;
 };
 
-// Alternative approach using built-in functions
+// Alternative approach using built-in methods
 // const tail = function(array) {
 //   return array.slice(1);
 // };
