@@ -16,6 +16,11 @@ const tail = function(array) {
   return tailArray;
 };
 
+// Alternative approach using built-in functions
+// const tail = function(array) {
+//   return array.slice(1);
+// };
+
 // Test tail function
 const resultOne = tail([5, 6, 7]);
 assertEqual(resultOne.length, 2);

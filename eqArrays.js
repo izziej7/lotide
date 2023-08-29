@@ -21,6 +21,12 @@ const eqArrays = function(array1, array2) {
   }
 };
 
+// Alternative approach to function using built-in methods
+// const eqArrays = function(array1, array2) {
+//   return array1.length === array2.length &&
+//     array1.every((element, index) => element === array2[index]);
+// };
+
 // Test eqArrays function
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);
 assertEqual(eqArrays([1, 2, 3], [3, 2, 1]), false);
