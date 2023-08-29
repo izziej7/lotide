@@ -23,20 +23,17 @@ const assertArraysEqual = function(array1, array2) {
 
 // Return a flattened version (single-level array) of a nested array
 const flatten = function(nestedArray) {
-  const flattenedArray = [];
-  let index = 0;
+  const flatArray = [];
   for (let i = 0; i < nestedArray.length; i++) {
     if (Array.isArray(nestedArray[i])) {
       for (let j = 0; j < nestedArray[i].length; j++) {
-        flattenedArray[index] = nestedArray[i][j];
-        index++;
+        flatArray.push(nestedArray[i][j]);
       }
     } else {
-      flattenedArray[index] = nestedArray[i];
-      index++;
+      flatArray.push(nestedArray[i]);
     }
   }
-  return flattenedArray;
+  return flatArray;
 };
 
 // Test flatten function
