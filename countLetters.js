@@ -1,3 +1,4 @@
+// Use to test countLetters function
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
@@ -6,6 +7,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
+// Return the count of occurrences of each letter in an object
 const countLetters = function(sentence) {
   const results = {};
   for (const letter of sentence) {
@@ -20,6 +22,7 @@ const countLetters = function(sentence) {
   return results;
 };
 
+// Test countLetters function
 const result1 = countLetters("code here");
 
 assertEqual(result1["c"], 1);
