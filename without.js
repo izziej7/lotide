@@ -24,21 +24,28 @@ const assertArraysEqual = function(array1, array2) {
 // Return a subset of an array (source), removing unwanted elements (itemsToRemove)
 const without = function(source, itemsToRemove) {
   const itemsRemovedArray = [];
-  let index = 0;
   for (let i = 0; i < source.length; i++) {
-    let toBeRemoved = false;
-    for (let j = 0; j < itemsToRemove.length; j++) {
-      if (source[i] === itemsToRemove[j]) {
-        toBeRemoved = true;
-      }
-    }
-    if (!toBeRemoved) {
-      itemsRemovedArray[index] = source[i];
-      index++;
+    if (!remove(source[i], itemsToRemove)) {
+      itemsRemovedArray.push(source[i]);
     }
   }
   return itemsRemovedArray;
 };
+
+// Helper function: return whether a source element must be removed
+const remove = function(sourceElement, itemsToRemove) {
+  for (let j = 0; j < itemsToRemove.length; j++) {
+    if (sourceElement === itemsToRemove[j]) {
+      return true;
+    }
+  }
+  return false;
+};
+
+// Alternative approach using built-in functions
+// const without = function(source, itemsToRemove) {
+//   return source.filter((element) => !itemsToRemove.includes(element));
+// };
 
 // Test without function
 assertArraysEqual(without([1, 2, 3], [1]), [2, 3]);
