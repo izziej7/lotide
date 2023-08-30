@@ -8,23 +8,22 @@ const assertEqual = function(actual, expected) {
 };
 
 // Compare two arrays for an exact match
-const eqArrays = function(array1, array2) {
-  if (array1.length === array2.length) {
-    for (let i = 0; i < array1.length; i++) {
-      if (array1[i] !== array2[i]) {
-        return false;
-      }
-    }
-    return true;
-  } else {
+const eqArrays = function(actual, expected) {
+  if (actual.length !== expected.length) {
     return false;
   }
+  for (let i = 0; i < actual.length; i++) {
+    if (actual[i] !== expected[i]) {
+      return false;
+    }
+  }
+  return true;
 };
 
 // Alternative approach to function using built-in methods
-// const eqArrays = function(array1, array2) {
-//   return array1.length === array2.length &&
-//     array1.every((element, index) => element === array2[index]);
+// const eqArrays = function(actual, expected) {
+//   return actual.length === expected.length &&
+//     actual.every((element, index) => element === expected[index]);
 // };
 
 // Test eqArrays function
