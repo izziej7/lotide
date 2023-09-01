@@ -1,4 +1,4 @@
-// Call inside eqObjects function
+// Call in eqObjects function (nested)
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;
@@ -20,8 +20,8 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// Return true if both objects have identical keys with identical values
-// Otherwise you get back a big fat false!
+/* Compare two objects and return true if they are an exact match
+ * exclude objects that have objects as values */
 const eqObjects = function(actual, expected) {
   if (Object.keys(actual).length !== Object.keys(expected).length) {
     return false;

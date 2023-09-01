@@ -7,7 +7,8 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// Return the first key which contains the given value in an object
+/* Search through an object and return the first key for which the value equals parameter value
+ * exclude objects that have arrays or objects as values */
 const findKeyByValue = function(object, value) {
   for (const key of Object.keys(object)) {
     if (object[key] === value) {

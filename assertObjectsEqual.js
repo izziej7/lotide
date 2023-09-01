@@ -1,4 +1,4 @@
-// Call inside eqObjects function
+// Call in eqObjects function (nested)
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;
@@ -11,7 +11,7 @@ const eqArrays = function(actual, expected) {
   return true;
 };
 
-// Call inside assertObjectsEqual function
+// Call in assertObjectsEqual function (nested)
 const eqObjects = function(actual, expected) {
   if (Object.keys(actual).length !== Object.keys(expected).length) {
     return false;
@@ -28,7 +28,7 @@ const eqObjects = function(actual, expected) {
   return true;
 };
 
-// Compare two objects and log the result to the console
+// Compare two objects and log if they are an exact match
 const assertObjectsEqual = function(actual, expected) {
   const inspect = require('util').inspect;
   if (eqObjects(actual, expected)) {

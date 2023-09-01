@@ -1,6 +1,4 @@
-const { assert } = require("console");
-
-// Call inside assertArraysEqual function
+// Call in assertArraysEqual function (nested)
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;
@@ -22,9 +20,7 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-/* Return a slice of the array with elements from the start 
- * until the callback returns a truthy value
- */
+// Return a slice of the array with elements from the start until the callback returns a truthy value
 const takeUntil = function(array, callback) {
   const results = [];
   for (const item of array) {

@@ -1,4 +1,4 @@
-// Call inside assertArraysEqual function
+// Call in assertArraysEqual function (nested)
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;
@@ -20,7 +20,7 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-// Return all the indices in the sentence where each character is found in an object
+// Determine the index of each character in a sentence and return the results as an object
 const letterPositions = function(sentence) {
   const results = {};
   for (let i = 0; i < sentence.length; i++) {

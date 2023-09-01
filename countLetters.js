@@ -7,7 +7,8 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// Return the count of occurrences of each letter in an object
+/* Count the occurrence of each letter in a sentence and return the results as an object
+ * exclude spaces */
 const countLetters = function(sentence) {
   const results = {};
   for (const letter of sentence) {

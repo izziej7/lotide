@@ -1,6 +1,4 @@
-/* Test whether the actual output of a function 
- * equals the expected output and log the result to the console
- */
+// Compare two primitive types and log if they are an exact match
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);

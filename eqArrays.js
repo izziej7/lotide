@@ -7,7 +7,7 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// Compare two arrays for an exact match
+// Compare two arrays and return a boolean based on whether they are an exact match
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;
@@ -19,12 +19,6 @@ const eqArrays = function(actual, expected) {
   }
   return true;
 };
-
-// Alternative approach to function using built-in methods
-// const eqArrays = function(actual, expected) {
-//   return actual.length === expected.length &&
-//     actual.every((element, index) => element === expected[index]);
-// };
 
 // Test eqArrays function
 assertEqual(eqArrays([1, 2, 3], [1, 2, 3]), true);

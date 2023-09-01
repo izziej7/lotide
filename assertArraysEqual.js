@@ -1,4 +1,4 @@
-// Call inside assertArraysEqual function
+// Call in assertArraysEqual function (nested)
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;
@@ -11,7 +11,7 @@ const eqArrays = function(actual, expected) {
   return true;
 };
 
-// Compare two arrays and log the result to the console
+// Compare two arrays and log if they are an exact match
 const assertArraysEqual = function(actual, expected) {
   if (eqArrays(actual, expected)) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);

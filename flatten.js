@@ -1,4 +1,4 @@
-// Call inside assertArraysEqual function
+// Call in assertArraysEqual function (nested)
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;

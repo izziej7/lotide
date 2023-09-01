@@ -1,4 +1,4 @@
-// Call inside assertArraysEqual function
+// Call in assertArraysEqual function (nested)
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;
@@ -20,9 +20,7 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-/* Return a new array with the results of calling a provided function 
- * on every element in the calling array
- */
+// Call a callback on every element in an array and return the results in a new array
 const map = function(array, callback) {
   const results = [];
   for (const item of array) {
