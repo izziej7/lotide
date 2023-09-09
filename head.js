@@ -9,7 +9,7 @@ const assertEqual = function(actual, expected) {
 
 // Return the first element (head) of an array
 const head = function(array) {
-  return array[0];
+  return (array && array.length) ? array[0] : undefined;
 };
 
 // Test head function
