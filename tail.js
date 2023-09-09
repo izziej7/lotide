@@ -10,10 +10,8 @@ const assertEqual = function(actual, expected) {
 // Return all except the first element (head) of an array
 const tail = function(array) {
   const tailArray = [];
-  if (array && array.length) {
-    for (let i = 0; i < array.length - 1; i++) {
-      tailArray[i] = array[i + 1];
-    }
+  for (let i = 1; i < array.length; i++) {
+    tailArray.push(array[i]);
   }
   return tailArray;
 };
