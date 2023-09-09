@@ -22,6 +22,9 @@ const assertArraysEqual = function(actual, expected) {
 
 // Return a subset of the array source, removing unwanted elements specified in itemsToRemove
 const without = function(source, itemsToRemove) {
+  if (!source) {
+    return [];
+  }
   const itemsRemovedArray = [];
   for (const item of source) {
     if (!remove(item, itemsToRemove)) {
@@ -33,6 +36,9 @@ const without = function(source, itemsToRemove) {
 
 // Helper function: return whether a source element must be removed
 const remove = function(sourceItem, itemsToRemove) {
+  if (!itemsToRemove) {
+    return false;
+  }
   for (const item of itemsToRemove) {
     if (sourceItem === item) {
       return true;
@@ -47,6 +53,8 @@ assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]);
 assertArraysEqual(without([], []), []);
 assertArraysEqual(without([1, 2, 3], []), [1, 2, 3]);
 assertArraysEqual(without([1, 2, 3], [2]), [1, 3]);
+assertArraysEqual(without(), []);
+assertArraysEqual(without([1, 2, 3], null), [1, 2, 3]);
 
 const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]);
