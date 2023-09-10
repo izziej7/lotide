@@ -31,6 +31,10 @@ const eqObjects = function(actual, expected) {
       if (!eqArrays(actual[key], expected[key])) {
         return false;
       }
+    } else if (typeof actual[key] === "object" && typeof expected[key] === "object") {
+      if (!eqObjects(actual[key], expected[key])) {
+        return false;
+      }
     } else if (actual[key] !== expected[key]) {
       return false;
     }
