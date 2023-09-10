@@ -1,4 +1,4 @@
-// Call in eqObjects function (nested)
+// Call in eqObjects function
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;
