@@ -4,7 +4,11 @@ const eqArrays = function(actual, expected) {
     return false;
   }
   for (let i = 0; i < actual.length; i++) {
-    if (actual[i] !== expected[i]) {
+    if (Array.isArray(actual[i]) && Array.isArray(expected[i])) {
+      if (!eqArrays(actual[i], expected[i])) {
+        return false;
+      }
+    } else if (actual[i] !== expected[i]) {
       return false;
     }
   }
