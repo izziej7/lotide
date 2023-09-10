@@ -1,4 +1,4 @@
-// Call in eqObjects function (nested)
+// Call in eqObjects function
 const eqArrays = function(actual, expected) {
   if (actual.length !== expected.length) {
     return false;
@@ -11,7 +11,7 @@ const eqArrays = function(actual, expected) {
   return true;
 };
 
-// Call in assertObjectsEqual function (nested)
+// Call in assertObjectsEqual function
 const eqObjects = function(actual, expected) {
   if (Object.keys(actual).length !== Object.keys(expected).length) {
     return false;
@@ -19,6 +19,10 @@ const eqObjects = function(actual, expected) {
   for (const key of Object.keys(actual)) {
     if (Array.isArray(actual[key]) && Array.isArray(expected[key])) {
       if (!eqArrays(actual[key], expected[key])) {
+        return false;
+      }
+    } else if (typeof actual[key] === "object" && typeof expected[key] === "object") {
+      if (!eqObjects(actual[key], expected[key])) {
         return false;
       }
     } else if (actual[key] !== expected[key]) {
@@ -39,10 +43,10 @@ const assertObjectsEqual = function(actual, expected) {
 };
 
 // Test assertObjectsEqual function
-const shirtObject = { color: "red", size: "medium" };
-const anotherShirtObject = { size: "medium", color: "red" };
-assertObjectsEqual(shirtObject, anotherShirtObject);
+const shirtOne = { color: "red", size: "medium" };
+const shirtTwo = { size: "medium", color: "red" };
+assertObjectsEqual(shirtOne, shirtTwo);
 
-const multiColorShirtObject = { colors: ["red", "blue"], size: "medium" };
-const anotherMultiColorShirtObject = { size: "medium", colors: ["red", "blue"] };
-assertObjectsEqual(multiColorShirtObject, anotherMultiColorShirtObject);
+const shirtThree = { colors: ["red", "blue"], size: "medium" };
+const shirtFour = { size: "medium", colors: ["red", "blue"] };
+assertObjectsEqual(shirtThree, shirtFour);
