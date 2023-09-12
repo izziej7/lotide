@@ -1,4 +1,4 @@
-// Compare two primitive types and log if they are an exact match
+// Compare two primitive types and log if they are strictly equal
 const assertEqual = function(actual, expected) {
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
@@ -7,7 +7,4 @@ const assertEqual = function(actual, expected) {
   }
 };
 
-// Test the assertEqual function
-assertEqual(1, 1);
-assertEqual("Lighthouse Labs", "Lighthouse Labs");
-assertEqual();
+module.exports = assertEqual;
