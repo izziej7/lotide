@@ -1,5 +1,4 @@
 // Use to test the head function
-const assertEqual = require("../assertEqual");
 const assert = require("chai").assert;
 const head = require("../head");
 
