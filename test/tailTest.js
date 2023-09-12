@@ -1,4 +1,4 @@
-// Use to test the head function
+// Use to test the tail function
 const assertEqual = require("../assertEqual");
 const tail = require("../tail");
 
