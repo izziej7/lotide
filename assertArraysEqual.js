@@ -1,19 +1,5 @@
 // Call in assertArraysEqual function
-const eqArrays = function(actual, expected) {
-  if (actual.length !== expected.length) {
-    return false;
-  }
-  for (let i = 0; i < actual.length; i++) {
-    if (Array.isArray(actual[i]) && Array.isArray(expected[i])) {
-      if (!eqArrays(actual[i], expected[i])) {
-        return false;
-      }
-    } else if (actual[i] !== expected[i]) {
-      return false;
-    }
-  }
-  return true;
-};
+const eqArrays = require("./eqArrays");
 
 // Compare two arrays and log if they are an exact match
 const assertArraysEqual = function(actual, expected) {
@@ -24,7 +10,4 @@ const assertArraysEqual = function(actual, expected) {
   }
 };
 
-// Test assertArraysEqual function
-assertArraysEqual([1, 2, 3], [1, 2, 3]);
-assertArraysEqual([], []);
-assertArraysEqual(["1", "2", "3"], ["1", "2", "3"]);
+module.exports = assertArraysEqual;
