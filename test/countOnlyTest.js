@@ -1,23 +1,12 @@
 // Use to test countOnly function
-const assertEqual = require("../assertEqual");
+const assert = require("chai").assert;
 const countOnly = require("../countOnly");
 
 // Test countOnly function
-const firstNames = [
-  "Karl",
-  "Salima",
-  "Agouhanna",
-  "Fang",
-  "Kavith",
-  "Jason",
-  "Salima",
-  "Fang",
-  "Joe"
-];
-
-const result1 = countOnly(firstNames, { "Jason": true, "Karima": true, "Fang": true, "Agouhanna": false });
-
-assertEqual(result1["Jason"], 1);
-assertEqual(result1["Karima"], undefined);
-assertEqual(result1["Fang"], 2);
-assertEqual(result1["Agouhanna"], undefined);
+describe("#countOnly", () => {
+  it("returns { 'Jason': 1, 'Fang': 2 } for allItems = ['Karl', 'Salima', 'Agouhanna', 'Fang', 'Kavith', 'Jason', 'Salima', 'Fang', 'Joe'] and itemstoCount = { 'Jason': true, 'Karima': true, 'Fang': true, 'Agouhanna': false }", () => {
+    const allItems = ['Karl', 'Salima', 'Agouhanna', 'Fang', 'Kavith', 'Jason', 'Salima', 'Fang', 'Joe'];
+    const itemsToCount = { 'Jason': true, 'Karima': true, 'Fang': true, 'Agouhanna': false };
+    assert.deepEqual(countOnly(allItems, itemsToCount), { 'Jason': 1, 'Fang': 2 });
+  });
+});
