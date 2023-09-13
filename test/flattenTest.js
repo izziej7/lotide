@@ -1,6 +1,3 @@
-// Call in assertArraysEqual function
-const eqArrays = require("../eqArrays");
-
 // Use to test flatten function
 const assertArraysEqual = require("../assertArraysEqual");
 const flatten = require("../flatten");

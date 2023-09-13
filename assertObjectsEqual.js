@@ -1,6 +1,3 @@
-// Call in eqObjects function
-const eqArrays = require("./eqArrays");
-
 // Call in assertObjectsEqual function
 const eqObjects = require("./eqObjects");
 
