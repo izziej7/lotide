@@ -17,8 +17,7 @@ const eqObjects = function(actual, expected) {
    * recursive calls will continue to be made until the values of the objects are not objects
    * if the result of the recursive calls is false, return false
    * if both the objects' values are primitives, compare them
-   * if they are not strictly equal, return false 
-   */
+   * if they are not strictly equal, return false */
   for (const key of Object.keys(actual)) {
     if (Array.isArray(actual[key]) && Array.isArray(expected[key])) {
       if (!eqArrays(actual[key], expected[key])) {
