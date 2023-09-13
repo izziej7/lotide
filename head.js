@@ -1,6 +1,4 @@
-/* Return the first element (head) of an array
- * parameter: array
- * returns: any */
+// Returns the first element of an array
 const head = function(array) {
   return array[0];
 };

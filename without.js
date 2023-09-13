@@ -1,35 +1,28 @@
-/* Return a subset of the array source, removing unwanted elements specified in itemsToRemove
- * parameter: source - array
- * parameter: itemsToRemove - array
- * returns: array */
+// Returns a subset of the array source as a new array, excluding given values in array itemsToRemove
 const without = function(source, itemsToRemove) {
-  // declare an empty arrayAfterRemoved array
   const arrayAfterRemoved = [];
-  /* loop through each element in the source array
-   * call the helper function remove on each element
-   * if it returns false, push the element onto the arrayAfterRemoved array */
-  for (const item of source) {
-    if (!remove(item, itemsToRemove)) {
-      arrayAfterRemoved.push(item);
+  // loop through each element of source
+  for (const element of source) {
+    // pass each element into the remove helper function
+    if (!remove(element, itemsToRemove)) {
+      // if the helper function returns false, push the element into arrayAfterRemoved
+      // if the helper function returns true, the element will not be in arrayAfterRemoved
+      arrayAfterRemoved.push(element);
     }
   }
-  // return the arrayAfterRemoved array
   return arrayAfterRemoved;
 };
 
-/* Helper function: return whether a source element must be removed
- * parameter: sourceItem - element from source array
- * parameter: itemsToRemove - array from main function
- * returns: boolean - true || false */
-const remove = function(sourceItem, itemsToRemove) {
-  /* loop through each element in the itemsToRemove array
-   * if the sourceItem equals an element in the itemsToRemove array, return true */
-  for (const item of itemsToRemove) {
-    if (sourceItem === item) {
+// Helper function: returns whether an element of source must be removed
+const remove = function(sourceElement, itemsToRemove) {
+  // loop through each element of itemsToRemove
+  for (const element of itemsToRemove) {
+    // if the source element is equal to an element of itemsToRemove, return true for removal
+    if (sourceElement === element) {
       return true;
     }
   }
-  // if none of the elements in the itemsToRemove array equal the sourceItem, return false
+  // if the source element is not equal to any of the elements of itemsToRemove, return false
   return false;
 };
 

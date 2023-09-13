@@ -1,22 +1,19 @@
-/* Return a flattened version (single-level array) of a nested array
- * parameter: nestedArray - array of arrays
- * returns: single-level array */
-const flatten = function(nestedArray) {
-  // declare an empty flatArray array
+// Returns an array of arrays flattened a single level deep in a new array
+const flatten = function(arrayOfArrays) {
   const flatArray = [];
-  /* loop through each element in the nestedArray array
-   * if the element is an array, loop through and push each element to flatArray
-   * if the element is not an array, push each element to flatArray */
-  for (const item of nestedArray) {
-    if (Array.isArray(item)) {
-      for (const val of item) {
+  // loop through each element of arrayOfArrays
+  for (const element of arrayOfArrays) {
+    // if the element is an array, loop through each element of this array
+    if (Array.isArray(element)) {
+      for (const val of element) {
+        // push each element of this array into the flatArray
         flatArray.push(val);
       }
+    // if the element is not an array, push it into the flatArray
     } else {
-      flatArray.push(item);
+      flatArray.push(element);
     }
   }
-  // return the flatArray array
   return flatArray;
 };
 

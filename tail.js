@@ -1,16 +1,12 @@
-/* Return all except the first element (head) of an array
- * parameter: array
- * returns: array */
+// Returns all except the first element of an array in a new array
 const tail = function(array) {
-  // declare an empty tailArray array
   const tailArray = [];
-  /* loop through each element of the parameter array
-   * starting with index 1 (skipping the first element)
-   * push each item onto the tailArray array */
+  /* loop through each element of array
+   * start with index 1 (skip the first element)
+   * push each element into new array */
   for (let i = 1; i < array.length; i++) {
     tailArray.push(array[i]);
   }
-  // return the tailArray array
   return tailArray;
 };
 
