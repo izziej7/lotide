@@ -1,4 +1,4 @@
-// Returns a subset of the array source as a new array, excluding given values in array itemsToRemove
+// Returns a subset of the array source in a new array, excluding given values in array itemsToRemove
 const without = function(source, itemsToRemove) {
   const arrayAfterRemoved = [];
   // loop through each element of source
