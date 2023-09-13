@@ -9,6 +9,7 @@ assertArraysEqual(without([], []), []);
 assertArraysEqual(without([1, 2, 3], []), [1, 2, 3]);
 assertArraysEqual(without([1, 2, 3], [2]), [1, 3]);
 
+// Test without function does not change the source array
 const words = ["hello", "world", "lighthouse"];
 without(words, ["lighthouse"]);
 assertArraysEqual(words, ["hello", "world", "lighthouse"]);
