@@ -13,4 +13,4 @@ describe("#countLetters", () => {
   it("returns {} for an empty string", () => {
     assert.deepEqual(countLetters(""), {});
   });
-})
+});
