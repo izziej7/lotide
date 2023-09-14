@@ -1,28 +1,25 @@
-/* Compare two arrays and return a boolean based on whether they are an exact match
- * cannot handle array elements that are objects but not arrays
- * parameter: actual - array || array of arrays
- * parameter: expected - array || array of arrays 
- * returns: boolean - true || false */
+// Returns a boolean based on whether two arrays, actual and expected, are equal
 const eqArrays = function(actual, expected) {
   // if the lengths of the two arrays are not equal, return false
   if (actual.length !== expected.length) {
     return false;
   }
-  /* loop through the arrays and
-   * if the elements are also arrays, make a recursive call 
-   * recursive calls will continue to be made until the elements of the arrays are not arrays
-   * if the result of the recursive calls is false, return false
-   * if the elements are primitives, compare them and if they are not strictly equal, return false */
+  // loop through each element of actual and expected
   for (let i = 0; i < actual.length; i++) {
+    // if the element at the same index in each array is an array
     if (Array.isArray(actual[i]) && Array.isArray(expected[i])) {
+      // then make a recursive call for this element/nested array
       if (!eqArrays(actual[i], expected[i])) {
+        // if the recursive call returns false (not equal), then return false
         return false;
       }
+    // if the element at the same index in each array is a primitive
     } else if (actual[i] !== expected[i]) {
+      // if they are not equal, then return false
       return false;
     }
   }
-  // after looping through the arrays, if false was not returned, then return true
+  // if false is not already returned (equal), then return true
   return true;
 };
 

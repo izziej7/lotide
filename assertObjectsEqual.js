@@ -1,14 +1,11 @@
 // Call in assertObjectsEqual function
 const eqObjects = require("./eqObjects");
 
-/* Compare two objects and log to the console whether they are an exact match
- * parameter: actual - object - [string]: any
- * parameter: expected - object - [string]: any
- * returns: undefined */
+// Logs to the console whether two objects, actual and expected, are equal
 const assertObjectsEqual = function(actual, expected) {
   // use to log the objects to the console
   const inspect = require('util').inspect;
-  // pass the objects into the eqObjects function to determine whether they are an exact match
+  // call the eqObjects function to compare the two objects and return a boolean
   if (eqObjects(actual, expected)) {
     console.log(`✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
   } else {

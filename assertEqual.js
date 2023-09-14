@@ -1,9 +1,5 @@
-/* Compare two primitive types and log to the console whether they are strictly equal
- * parameter: actual - any primitive
- * parameter: expected - any primitive
- * returns: undefined */
+// Logs to the console whether two primitives, actual and expected, are equal
 const assertEqual = function(actual, expected) {
-  // compare the values using the strict equality operator
   if (actual === expected) {
     console.log(`✅✅✅ Assertion Passed: ${actual} === ${expected}`);
   } else {
