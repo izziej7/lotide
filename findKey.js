@@ -1,13 +1,10 @@
-/* Search through an object and return the first key for which the callback returns a truthy value
- * parameter: object - [string]: any
- * parameter: callback - function
- * returns: string || undefined */
+// Returns the first key in object for which the given callback returns a truthy value
 const findKey = function(object, callback) {
-  /* loop through the array of object keys
-   * pass the object's value into the callback function
-   * if the result is truthy, return the corresponding key */
+  // loop through the array of object's keys
   for (const key of Object.keys(object)) {
+    // pass the value into the callback function and if the result is truthy
     if (callback(object[key])) {
+      // return the key
       return key;
     }
   }

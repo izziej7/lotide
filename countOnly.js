@@ -1,23 +1,19 @@
-/* Count the occurrence of each specified string in an array and return the results as an object
- * parameter: allItems - array
- * parameter: itemsToCount - object - [string]: boolean
- * returns: object - [string]: number */
+// Returns the count in the allItems array of each string given as true in the itemsToCount array in an object
 const countOnly = function(allItems, itemsToCount) {
-  // declare an empty results object
   const results = {};
-  /* loop through each string in the allItems array, if the string is true in itemsToCount and
-   * it is a key in the results object, add 1 to the value
-   * it is not a key in the results object, create it with value = 1 */
-  for (const item of allItems) {
-    if (itemsToCount[item]) {
-      if (results[item]) {
-        results[item] += 1;
+  // loop through each element of allItems
+  for (const element of allItems) {
+    // if the element is given as true in itemsToCount
+    if (itemsToCount[element]) {
+      // and if the element is a key in the results object, add 1 to the value
+      if (results[element]) {
+        results[element] += 1;
+      // and if the element is not a key in the results object, create it with value = 1
       } else {
-        results[item] = 1;
+        results[element] = 1;
       }
     }
   }
-  // return the results object
   return results;
 };
 
