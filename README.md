@@ -26,9 +26,6 @@ This project was created and published by me as part of my learnings at Lighthou
 
 The following functions are currently implemented:
 
-* `assertArraysEqual`: logs to the console whether two arrays, actual and expected, are equal
-* `assertEqual`: logs to the console whether two primitives, actual and expected, are equal
-* `assertObjectsEqual`: logs to the console whether two objects, actual and expected, are equal
 * `countLetters(sentence)`: returns the count of each letter in a sentence in an object
 * `countOnly(allItems, itemsToCount)`: returns the count in the allItems array of each string given as true in the itemsToCount array in an object
 * `eqArrays(actual, expected)`: returns a boolean based on whether two arrays, actual and expected, are equal
