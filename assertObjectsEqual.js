@@ -8,7 +8,8 @@ const assertObjectsEqual = function(actual, expected) {
   // call the eqObjects function to compare the two objects and return a boolean
   if (eqObjects(actual, expected)) {
     console.log(`✅✅✅ Assertion Passed: ${inspect(actual)} === ${inspect(expected)}`);
-  } else {
+  }
+  if (!eqObjects(actual, expected)) {
     console.log(`🛑🛑🛑 Assertion Failed: ${inspect(actual)} !== ${inspect(expected)}`);
   }
 };

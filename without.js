@@ -1,15 +1,16 @@
 // Returns a subset of the array source in a new array, excluding given values in array itemsToRemove
 const without = function(source, itemsToRemove) {
   const arrayAfterRemoved = [];
+
   // loop through each element of source
   for (const element of source) {
     // pass each element into the remove helper function
     if (!remove(element, itemsToRemove)) {
       // if the helper function returns false, push the element into arrayAfterRemoved
-      // if the helper function returns true, the element will not be in arrayAfterRemoved
       arrayAfterRemoved.push(element);
     }
   }
+  
   return arrayAfterRemoved;
 };
 
@@ -22,6 +23,7 @@ const remove = function(sourceElement, itemsToRemove) {
       return true;
     }
   }
+
   // if the source element is not equal to any of the elements of itemsToRemove, return false
   return false;
 };
