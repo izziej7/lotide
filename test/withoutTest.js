@@ -1,15 +1,24 @@
 // Use to test without function
-const assertArraysEqual = require("../assertArraysEqual");
+const assert = require("chai").assert;
 const without = require("../without");
 
 // Test without function
-assertArraysEqual(without([1, 2, 3], [1]), [2, 3]);
-assertArraysEqual(without(["1", "2", "3"], [1, 2, "3"]), ["1", "2"]);
-assertArraysEqual(without([], []), []);
-assertArraysEqual(without([1, 2, 3], []), [1, 2, 3]);
-assertArraysEqual(without([1, 2, 3], [2]), [1, 3]);
-
-// Test without function does not change the source array
-const words = ["hello", "world", "lighthouse"];
-without(words, ["lighthouse"]);
-assertArraysEqual(words, ["hello", "world", "lighthouse"]);
+describe("#without", () => {
+  it("returns [2, 3] for [1, 2, 3] and [1]", () => {
+    assert.deepEqual(without([1, 2, 3], [1]), [2, 3]);
+  });
+  it("returns ['1', '2'] for ['1', '2', '3'] and [1, 2, '3']", () => {
+    assert.deepEqual(without(['1', '2', '3'], [1, 2, '3']), ['1', '2']);
+  });
+  it("returns [] for [] and []", () => {
+    assert.deepEqual(without([], []), []);
+  });
+  it("returns [1, 2, 3] for [1, 2, 3] and []", () => {
+    assert.deepEqual(without([1, 2, 3], []), [1, 2, 3]);
+  });
+  it("does not change the original array [1, 2, 3]", () => {
+    const num = [1, 2, 3];
+    without(num, [1]);
+    assert.deepEqual(num, [1, 2, 3]);
+  });
+});

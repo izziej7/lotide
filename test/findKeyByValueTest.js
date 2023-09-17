@@ -1,15 +1,19 @@
 // Use to test findKeyByValue function
-const assertEqual = require("../assertEqual");
+const assert = require("chai").assert;
 const findKeyByValue = require("../findKeyByValue");
 
 // Test findKeyByValue function
-const bestTVShowsByGenre = {
-  sciFi: "The Expanse",
-  comedy: "Brooklyn Nine-Nine",
-  drama: "The Wire"
-};
-
-assertEqual(findKeyByValue(bestTVShowsByGenre, "The Wire"), "drama");
-assertEqual(findKeyByValue(bestTVShowsByGenre, "That '70s Show"), undefined);
-assertEqual(findKeyByValue(bestTVShowsByGenre, "The Expanse"), "sciFi");
-assertEqual(findKeyByValue(bestTVShowsByGenre, "Brooklyn Nine-Nine"), "comedy");
+describe("#findKeyByValue", () => {
+  it("returns 'a' for object = { 'a': 1, 'b': 2, 'c': 3 } and value = 1", () => {
+    const object = { 'a': 1, 'b': 2, 'c': 3 };
+    assert.strictEqual(findKeyByValue(object, 1), 'a');
+  });
+  it("returns undefined for object = { 'a': 'a', 'b': 'b' } and value = 'c'", () => {
+    const object = { 'a': 'a', 'b': 'b' };
+    assert.strictEqual(findKeyByValue(object, 'c'), undefined);
+  });
+  it("returns 'b' for object = { 'a': 1, 'b': 2, 'c': 2 } and value = 2", () => {
+    const object = { 'a': 1, 'b': 2, 'c': 2 };
+    assert.strictEqual(findKeyByValue(object, 2), 'b');
+  });
+});

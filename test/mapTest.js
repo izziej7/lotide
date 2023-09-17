@@ -1,20 +1,20 @@
 // Use to test map function
-const assertArraysEqual = require("../assertArraysEqual");
+const assert = require("chai").assert;
 const map = require("../map");
 
 // Test map function
-const words = ["ground", "control", "to", "major", "tom"];
-const results1 = map(words, word => word[0]);
-assertArraysEqual(results1, ["g", "c", "t", "m", "t"]);
-
-const numbers = [1, 2, 3, 4, 5];
-const results2 = map(numbers, num => num * 2);
-assertArraysEqual(results2, [2, 4, 6, 8, 10]);
-
-const students = [
-  { name: "Fizza", id: 1234 },
-  { name: "Evan", id: 1235 },
-  { name: "Katie", id: 1236 }
-];
-const results3 = map(students, student => student.name);
-assertArraysEqual(results3, ["Fizza", "Evan", "Katie"]);
+describe("#map", () => {
+  it("returns ['g', 'c'] for ['ground', 'control'] and word => word[0]", () => {
+    assert.deepEqual(map(['ground', 'control'], word => word[0]), ['g', 'c']);
+  });
+  it("returns [2, 4, 6] for [1, 2, 3] and num => num * 2", () => {
+    assert.deepEqual(map([1, 2, 3], num => num * 2), [2, 4, 6]);
+  });
+  it("returns ['Fizza', 'Evan'] for [{ 'name': 'Fizza', id: 1234 }, { 'name': 'Evan', id: 1235 }] and student => student.name", () => {
+    const students = [
+      { 'name': 'Fizza', id: 1234 },
+      { 'name': 'Evan', id: 1235 }
+    ];
+    assert.deepEqual(map(students, student => student.name), ['Fizza', 'Evan']);
+  });
+});

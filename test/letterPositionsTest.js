@@ -1,11 +1,16 @@
 // Use to test letterPositions function
-const assertArraysEqual = require("../assertArraysEqual");
+const assert = require("chai").assert;
 const letterPositions = require("../letterPositions");
 
 // Test letterPositions function
-const result1 = letterPositions("hello");
-
-assertArraysEqual(result1["h"], [0]);
-assertArraysEqual(result1["e"], [1]);
-assertArraysEqual(result1["l"], [2, 3]);
-assertArraysEqual(result1["o"], [4]);
+describe("#letterPositions", () => {
+  it("returns { 'h': [0], 'e': [1], 'l': [2, 3], 'o': [4] } for 'hello'", () => {
+    assert.deepEqual(letterPositions("hello"), { 'h': [0], 'e': [1], 'l': [2, 3], 'o': [4] });
+  });
+  it("returns { 't': [0, 3], 'a': [1], 'r': [2] } for 'tart'", () => {
+    assert.deepEqual(letterPositions("tart"), { 't': [0, 3], 'a': [1], 'r': [2] });
+  });
+  it("returns {} for ''", () => {
+    assert.deepEqual(letterPositions(""), {});
+  });
+});

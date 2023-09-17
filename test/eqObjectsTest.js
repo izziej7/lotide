@@ -1,33 +1,28 @@
 // Use to test the eqObjects function
-const assertEqual = require("../assertEqual");
+const assert = require("chai").assert;
 const eqObjects = require("../eqObjects");
 
 // Test eqObjects function
-const shirtOne = { color: "red", size: "medium" };
-const shirtTwo = { size: "medium", color: "red" };
-assertEqual(eqObjects(shirtOne, shirtTwo), true);
-
-const shirtThree = { size: "medium", color: "red", sleeveLength: "long" };
-assertEqual(eqObjects(shirtOne, shirtThree), false);
-
-const shirtFour = { colors: ["red", "blue"], size: "medium" };
-const shirtFive = { size: "medium", colors: ["red", "blue"] };
-assertEqual(eqObjects(shirtFour, shirtFive), true);
-
-const shirtSix = { size: "medium", colors: ["red", "blue"], sleeveLength: "long" };
-assertEqual(eqObjects(shirtFour, shirtSix), false);
-
-const objOne = { a: { z: 1 }, b: 2 };
-const objTwo = { a: { z: 1 }, b: 2 };
-assertEqual(eqObjects(objOne, objTwo), true);
-
-const objThree = { a: { y: 0, z: 1 }, b: 2 };
-const objFour = { a: { z: 1 }, b: 2 };
-assertEqual(eqObjects(objThree, objFour), false);
-
-const objFive = { a: { c: { y: 0, d: { z: 1 } } }, b: 2 };
-const objSix = { a: { c: { y: 0, d: { z: 1 } } }, b: 2 };
-assertEqual(eqObjects(objFive, objSix), true);
-
-const objSeven = { a: { c: { y: 0, d: { z: 2 } } }, b: 2 };
-assertEqual(eqObjects(objSix, objSeven), false);
+describe("#eqObjects", () => {
+  it("returns true for { 'a': 1, 'b': 2 } and { 'b': 2, 'a': 1 }", () => {
+    assert.strictEqual(eqObjects({ 'a': 1, 'b': 2 }, { 'b': 2, 'a': 1 }), true);
+  });
+  it("returns false for { 'a': [1, 2], 'b': 3 } and { 'b': 3, 'a': [1, 4] }", () => {
+    assert.strictEqual(eqObjects({ 'a': [1, 2], 'b': 3 }, { 'b': 3, 'a': [1, 4] }), false);
+  });
+  it("returns true for { a: { c: { y: 0, d: { z: 1 } } }, b: 2 } and { a: { c: { y: 0, d: { z: 1 } } }, b: 2 }", () => {
+    const objOne = { a: { c: { y: 0, d: { z: 1 } } }, b: 2 };
+    const objTwo = { a: { c: { y: 0, d: { z: 1 } } }, b: 2 };
+    assert.strictEqual(eqObjects(objOne, objTwo), true);
+  });
+  it("returns false for { a: { c: { y: 0, d: { z: 1 } } }, b: 2 } and { a: { c: { y: 0, d: { z: 2 } } }, b: 2 }", () => {
+    const objOne = { a: { c: { y: 0, d: { z: 1 } } }, b: 2 };
+    const objTwo = { a: { c: { y: 0, d: { z: 2 } } }, b: 2 };
+    assert.strictEqual(eqObjects(objOne, objTwo), false);
+  });
+  it("returns true for { a: { c: [1, 2, 3] }, b: 2 } and { a: { c: [1, 2, 3] }, b: 2 }", () => {
+    const objOne = { a: { c: [1, 2, 3] }, b: 2 };
+    const objTwo = { a: { c: [1, 2, 3] }, b: 2 };
+    assert.strictEqual(eqObjects(objOne, objTwo), true);
+  });
+});

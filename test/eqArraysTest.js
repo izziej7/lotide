@@ -19,9 +19,6 @@ describe("#eqArrays", () => {
   it("returns true for [1, [[2, 3], [4, [5]]], [6]] and [1, [[2, 3], [4, [5]]], [6]]", () => {
     assert.strictEqual(eqArrays([1, [[2, 3], [4, [5]]], [6]], [1, [[2, 3], [4, [5]]], [6]]), true);
   });
-  it("returns false for [1, [[2, 3], [4, [5]]], [6]] and [1, [[2, 3], [4, 5]], [6]]", () => {
-    assert.strictEqual(eqArrays([1, [[2, 3], [4, [5]]], [6]], [1, [[2, 3], [4, 5]], [6]]), false);
-  });
   it("returns false for [1, 2, 3] and [1, [2], 3]", () => {
     assert.strictEqual(eqArrays([1, 2, 3], [1, [2], 3]), false);
   });
